@@ -1,0 +1,188 @@
+/* Reset de margens, preenchimentos e modelo de caixa */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Definindo variáveis de cor e tamanho de fonte */
+:root {
+  font-size: 62.5%; /* Tamanho de fonte base para facilitar cálculos em rem */
+
+  /* Cores */
+  --tt-heading: #0c3440;
+  --tt-label: #00453a;
+  --input: #212529;
+  --ot-input: #02799d;
+  --bd-input: rgba(73, 80, 87, 0.3);
+  --tt-placeholder: rgba(73, 80, 87, 0.5);
+  --bg_input: #dce2e9;
+  --tt-button: white;
+  --bg-button: #02799d;
+  --bg-button-hover: #01475c;
+  --bg-error: #f03e3e;
+  --tt-erro: white;
+}
+
+/* Estilo global do corpo da página */
+body {
+  background-color: #040924;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Estilo global para corpo, input e botão */
+body,
+input,
+button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+/* Estilo para o contêiner principal */
+.container {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+/* Estilo para o cartão principal */
+.card {
+  padding: 4.8rem 6.4rem 6.4rem;
+  background: white;
+  max-width: 42.8rem;
+  margin-inline: auto;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 0.8rem;
+}
+
+/* Estilo para o título */
+.title {
+  font-size: 3.2rem;
+  line-height: 4rem;
+  color: var(--tt-heading);
+}
+
+/* Estilo para o formulário */
+form {
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+/* Estilo para rótulos do formulário */
+form label {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--tt-label);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+/* Estilo para campos de entrada do formulário */
+form input {
+  width: 100%;
+  border: 1px solid var(--bd-input);
+  background: var(--bg_input);
+  padding: 1.6rem;
+  border-radius: 0.4rem;
+}
+
+/* Espaçamento entre campos de entrada */
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+
+/* Estilo para o texto de espaço reservado nos campos de entrada */
+form input::placeholder {
+  color: var(--tt-placeholder);
+}
+
+/* Estilo para o campo de entrada focado */
+form input:focus {
+  outline: 2px solid var(--ot-input);
+}
+
+/* Estilo para o botão do formulário */
+form button {
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: var(--bg-button);
+  color: var(--tt-button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Estilo para o botão do formulário ao passar o mouse sobre ele */
+form button:hover {
+  background: var(--bg-button-hover);
+}
+
+/* Estilo para a modal (janela de pop-up) */
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Estilo para a modal */
+.modal {
+  position: relative;
+}
+
+/* Estilo para o botão dentro da modal */
+.modal button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* Estilo para o botão dentro da modal ao passar o mouse sobre ele */
+.modal button:hover {
+  transform: scale(1.2);
+}
+
+/* Estilo para o alerta de erro */
+.alert-error.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert-error {
+  position: absolute;
+  background-color: var(--bg-error);
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--tt-erro);
+  padding: 0.8rem 0;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-30px);
+  transition: transform 0.5s;
+}
